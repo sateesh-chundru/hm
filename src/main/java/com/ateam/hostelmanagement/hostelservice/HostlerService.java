@@ -3,14 +3,14 @@ package com.ateam.hostelmanagement.hostelservice;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.ateam.hostelmanagement.bean.Expense;
-import com.ateam.hostelmanagement.bean.Hostel;
-import com.ateam.hostelmanagement.bean.Hostler;
-import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
-import com.ateam.hostelmanagement.bean.HostlerSearch;
-import com.ateam.hostelmanagement.bean.Payments;
-import com.ateam.hostelmanagement.bean.Room;
-import com.ateam.hostelmanagement.bean.RoomSearch;
+import com.ateam.hostelmanagement.hosteldaoimpl.Expense;
+import com.ateam.hostelmanagement.hosteldaoimpl.Hostel;
+import com.ateam.hostelmanagement.hosteldaoimpl.Hostler;
+import com.ateam.hostelmanagement.hosteldaoimpl.HostlerRoomMapping;
+import com.ateam.hostelmanagement.hosteldaoimpl.HostlerSearch;
+import com.ateam.hostelmanagement.hosteldaoimpl.Payments;
+import com.ateam.hostelmanagement.hosteldaoimpl.Room;
+import com.ateam.hostelmanagement.hosteldaoimpl.RoomSearch;
 
 public interface HostlerService {
 	

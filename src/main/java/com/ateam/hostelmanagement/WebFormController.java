@@ -21,12 +21,12 @@ import com.ateam.hostelmanagement.Validators.HostelValidator;
 import com.ateam.hostelmanagement.Validators.HostlerValidator;
 import com.ateam.hostelmanagement.Validators.PaymentValidator;
 import com.ateam.hostelmanagement.Validators.RoomValidator;
-import com.ateam.hostelmanagement.bean.Expense;
-import com.ateam.hostelmanagement.bean.Hostel;
-import com.ateam.hostelmanagement.bean.Hostler;
-import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
-import com.ateam.hostelmanagement.bean.Payments;
-import com.ateam.hostelmanagement.bean.Room;
+import com.ateam.hostelmanagement.hosteldaoimpl.Expense;
+import com.ateam.hostelmanagement.hosteldaoimpl.Hostel;
+import com.ateam.hostelmanagement.hosteldaoimpl.Hostler;
+import com.ateam.hostelmanagement.hosteldaoimpl.HostlerRoomMapping;
+import com.ateam.hostelmanagement.hosteldaoimpl.Payments;
+import com.ateam.hostelmanagement.hosteldaoimpl.Room;
 import com.ateam.hostelmanagement.hostelservice.HostlerService;
 
 @Controller

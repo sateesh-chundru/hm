@@ -4,7 +4,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.ateam.hostelmanagement.bean.Hostler;
+import com.ateam.hostelmanagement.hosteldaoimpl.Hostler;
 import com.ateam.hostelmanagement.util.Api;
 @Component
 public class HostlerValidator implements Validator 

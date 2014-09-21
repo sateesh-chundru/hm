@@ -5,7 +5,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.ateam.hostelmanagement.bean.Room;
+import com.ateam.hostelmanagement.hosteldaoimpl.Room;
 @Component
 public class RoomValidator implements Validator {
 

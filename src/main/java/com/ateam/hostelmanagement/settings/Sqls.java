@@ -44,7 +44,7 @@ public interface Sqls {
     public static String SELECT_ROOM_BEDS_AVAILABLE="select roomId,roomNumber,r.deleted,r.hostelId,noOfBeds,h.hostelName,(noOfBeds-(select count(roomId) as filledcount from RoomHostlerMapping as rhmap where rhmap.deleted=0 and rhmap.roomId=r.roomId)) as availableBeds from room r join hostel h on(r.hostelId=h.hostelId)";
     public static String SELECT_HOSTLER_ROOM="select h.hostelname,rhm.roomId,rhm.hostlerId from  RoomHostlerMapping rhm join hostel h";
     public static String SELECT_PAID_HOSTLERID="SELECT `hostlerId` FROM `Payments` WHERE `actualDate` BETWEEN ? AND ? ";
-    public static String SELECT_UNPAID_HOSTLERID="SELECT hr.*,rhm.`dateOfJoining`,CONCAT(YEAR(?),'-',IF(MONTH(?)<10,CONCAT('0',MONTH(?)),MONTH(?)),'-',IF(DAY(rhm.`dateOfJoining`)<10,CONCAT('0',DAY(rhm.`dateOfJoining`)),DAY(rhm.`dateOfJoining`))) AS actualDate FROM  RoomHostlerMapping rhm  INNER JOIN hostler hr  ON (`rhm`.`hostlerId`=hr.`hostlerId`) WHERE DAY(rhm.dateOfJoining) BETWEEN  DAY(?) AND DAY(?) :extraCondition";
+    public static String SELECT_UNPAID_HOSTLERID="SELECT hr.*,hr.`dateOfJoining`,CONCAT(YEAR(?),'-',IF(MONTH(?)<10,CONCAT('0',MONTH(?)),MONTH(?)),'-',IF(DAY(hr.`dateOfJoining`)<10,CONCAT('0',DAY(hr.`dateOfJoining`)),DAY(hr.`dateOfJoining`))) AS actualDate FROM   hostler hr WHERE DAY(hr.dateOfJoining) BETWEEN  DAY(?) AND DAY(?) :extraCondition";
 
     public static String INSERT_PAYMENT="INSERT INTO Payments (paymentId,actualAmount,paidAmount,actualDate,paidDate,hostlerId) VALUES  (?,?,?,?,?,?)" ;
     public static String SELECT_PAYMENTS="SELECT h.`name` AS hostlerName,p.* FROM hostler h JOIN Payments p ON h.`hostlerId`=p.`hostlerId` WHERE p.deleted=0";

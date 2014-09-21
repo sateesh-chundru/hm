@@ -20,15 +20,6 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.ateam.hostelmanagement.bean.CurrentPayers;
-import com.ateam.hostelmanagement.bean.Expense;
-import com.ateam.hostelmanagement.bean.Hostel;
-import com.ateam.hostelmanagement.bean.Hostler;
-import com.ateam.hostelmanagement.bean.HostlerRoomMapping;
-import com.ateam.hostelmanagement.bean.HostlerSearch;
-import com.ateam.hostelmanagement.bean.Payments;
-import com.ateam.hostelmanagement.bean.Room;
-import com.ateam.hostelmanagement.bean.RoomSearch;
 import com.ateam.hostelmanagement.hosteldao.HostlerDao;
 import com.ateam.hostelmanagement.settings.Sqls;
 import com.ateam.hostelmanagement.util.Api;
@@ -128,7 +119,7 @@ public class HostlerDaoImpl implements HostlerDao {
 	}
 	public List<Room> getallrooms(int offset, int pageSize) {
 		Session session = sessionFactory.getCurrentSession();
-       List<Room> rooms =  session.createQuery("select r.roomId, r.roomNumber, r.noOfBeds, r.hostelId,h.hostelName from room r join hostel h  where r.deleted=0").list();	     		
+       List<Room> rooms =  jdbcTemplet.query(Sqls.SELECT_ROOMS, new Object[]{offset,pageSize},new BeanPropertyRowMapper<Room>(Room.class));//session.createQuery("select r.roomId, r.roomNumber, r.noOfBeds, r.hostelId,h.hostelName from com.ateam.hostelmanagement.hosteldaoimpl.Room r join com.ateam.hostelmanagement.hosteldaoimpl.Hostel h  where r.deleted=0").list();	     		
 //		Criteria query = session.createCriteria(Hostel.class);
 //	    query.createCriteria("room", "r");
 //	    query.add(Restrictions.eq("r.hostelId", hostelId));
@@ -385,14 +376,14 @@ public class HostlerDaoImpl implements HostlerDao {
 	
 	public List<Payments> getPaymentHistory(long hostlerId) {
 //
-//		List<Payments> paymentHistory = jdbcTemplet.query(
-//				Sqls.SELECT_PAYMENT_HISTORY, new Object[] { hostlerId },
-//				new BeanPropertyRowMapper<Payments>(Payments.class));
+		List<Payments> paymentHistory = jdbcTemplet.query(
+				Sqls.SELECT_PAYMENT_HISTORY, new Object[] { hostlerId },
+				new BeanPropertyRowMapper<Payments>(Payments.class));
 		
-		Session session = sessionFactory.getCurrentSession();
-		Query qry=session.createQuery(" from Payments p join hostler h where p.hostlerId=h.hostlerId and p.hostlerId=?");
-		qry.setParameter(0,hostlerId);
-		List<Payments> paymentHistory = qry.list();
+//		Session session = sessionFactory.getCurrentSession();
+//		Query qry=session.createQuery(" from Payments p join hostler h where p.hostlerId=h.hostlerId and p.hostlerId=?");
+//		qry.setParameter(0,hostlerId);
+//		List<Payments> paymentHistory = qry.list();
 		return paymentHistory;
 	}
 

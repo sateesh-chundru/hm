@@ -1,4 +1,4 @@
-package com.ateam.hostelmanagement.bean;
+package com.ateam.hostelmanagement.hosteldaoimpl;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +13,7 @@ public class Room {
 	private  String roomNumber;
 	private  String noOfBeds;
 	private String hostelId;
+	@Transient
 	private String hostelName;
 	@Transient
 	private int availableBeds;

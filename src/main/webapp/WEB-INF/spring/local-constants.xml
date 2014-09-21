@@ -6,7 +6,7 @@
 	<entry key="dp_ip">localhost</entry>
 	<entry key="db_port">3306</entry>
 	<entry key="db_username">root</entry>
-	<entry key="db_password">admin</entry>
+	<entry key="db_password">root</entry>
 	<entry key="db_driver">com.mysql.jdbc.Driver</entry>
 	
 	<!-- hibernate properties -->

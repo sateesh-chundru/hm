@@ -1,14 +1,8 @@
-package com.ateam.hostelmanagement.bean;
+package com.ateam.hostelmanagement.hosteldaoimpl;
 
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.Cascade;
 
 @Entity(name="hostel")
 public class Hostel {

@@ -1,4 +1,4 @@
-package com.ateam.hostelmanagement.bean;
+package com.ateam.hostelmanagement.hosteldaoimpl;
 
 public class CurrentPayers {
 	private long hostlerId;

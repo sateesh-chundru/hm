@@ -1,4 +1,4 @@
-package com.ateam.hostelmanagement.bean;
+package com.ateam.hostelmanagement.hosteldaoimpl;
 
 import java.math.BigDecimal;
 

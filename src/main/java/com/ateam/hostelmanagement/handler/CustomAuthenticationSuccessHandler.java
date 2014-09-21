@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
-import com.ateam.hostelmanagement.bean.SessionData;
+import com.ateam.hostelmanagement.hosteldaoimpl.SessionData;
 
 
 

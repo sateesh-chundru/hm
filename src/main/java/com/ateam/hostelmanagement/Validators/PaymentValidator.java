@@ -7,7 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.ateam.hostelmanagement.bean.Payments;
+import com.ateam.hostelmanagement.hosteldaoimpl.Payments;
 import com.ateam.hostelmanagement.util.Api;
 @Component
 public class PaymentValidator implements Validator {
