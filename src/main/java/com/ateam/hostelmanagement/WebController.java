@@ -64,6 +64,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	@RequestMapping(value="/hostler/create",method=RequestMethod.GET)
 	public String createHostlerLand(Model model){
 		model.addAttribute("hostler",new Hostler());
+		model.addAttribute("rooms",hostlerService.getAvailableBeds());
 		return "createHostler";
 }
 	@RequestMapping(value="/hostler/edit/{hostlerId}",method=RequestMethod.GET)
@@ -71,6 +72,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		
 		Hostler hostler=hostlerService.getHostler(hostlerId);
 		model.addAttribute("hostler",hostler);
+		model.addAttribute("rooms",hostlerService.getAvailableBeds());
 		return "editHostler";
 	}
 	@RequestMapping(value = "/hostler/all", method = RequestMethod.GET)

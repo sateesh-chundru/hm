@@ -98,6 +98,33 @@ function isFormContainsErrors(){
 Mobile Number*</td><td> <form:input path="mobileNumber"/></td>
 <td><span id="mobileNumber_error" class="error"><form:errors path="mobileNumber"></form:errors></span></td>
 </tr>
+
+<tr>
+<td>
+Date of joining*</td><td> <form:input path="dateOfJoining" class="Date"/></td>
+<td><span id="dateOfJoining_error" class="error"><form:errors path="dateOfJoining"></form:errors></span></td>
+</tr>
+
+<tr>
+<td>
+Amount to pay*</td><td> <form:input path="amount" class="Number"/></td>
+<td><span id="amount_error" class="error"><form:errors path="amount"></form:errors></span></td>
+</tr>
+<tr>
+<td>Select Room*</td> <td> <select name="roomId" >
+<c:forEach items="${rooms}" var="room">
+<c:choose>
+<c:when test="${hostler.roomId==room.roomId }">
+<option value="${room.roomId }" selected="selected">${room.hostelName}-${room.roomNumber}-${room.availableBeds} Available</option>
+</c:when>
+<c:otherwise>
+<option value="${room.roomId }">${room.hostelName}-${room.roomNumber}-${room.availableBeds} Available</option>
+</c:otherwise>
+</c:choose>
+
+</c:forEach>
+</select></td>
+</tr>
 <tr>
 <td>Address*</td><td><form:textarea path="address" rows="5" cols="20"></form:textarea>
 <td><span id="address_error" class="error"><form:errors path="address"></form:errors></span></td>

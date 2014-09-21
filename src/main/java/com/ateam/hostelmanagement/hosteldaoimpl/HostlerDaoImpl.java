@@ -11,8 +11,6 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -21,7 +19,6 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.ateam.hostelmanagement.bean.CurrentPayers;
 import com.ateam.hostelmanagement.bean.Expense;
@@ -35,9 +32,7 @@ import com.ateam.hostelmanagement.bean.RoomSearch;
 import com.ateam.hostelmanagement.hosteldao.HostlerDao;
 import com.ateam.hostelmanagement.settings.Sqls;
 import com.ateam.hostelmanagement.util.Api;
-import com.mysql.jdbc.Statement;
 
-import java.util.ArrayList;
 
 @Repository
 public class HostlerDaoImpl implements HostlerDao {
@@ -47,9 +42,7 @@ public class HostlerDaoImpl implements HostlerDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
- @Autowired
-	private long hostelId;
-
+ 
 	
 	public void saveHostler(final Hostler hostler) {
 
@@ -79,9 +72,10 @@ public class HostlerDaoImpl implements HostlerDao {
 	}
 	public Hostler getHostler(long hostlerId) {
 
-		return jdbcTemplet.queryForObject(Sqls.SELECT_HOSTLER,
-				new Object[] { hostlerId }, new BeanPropertyRowMapper<Hostler>(
-						Hostler.class));
+		return (Hostler)sessionFactory.getCurrentSession().get(Hostler.class, hostlerId);
+//		return jdbcTemplet.queryForObject(Sqls.SELECT_HOSTLER,
+//				new Object[] { hostlerId }, new BeanPropertyRowMapper<Hostler>(
+//						Hostler.class));
 
 	}
 	public void saveHostel(final Hostel hostel) {
