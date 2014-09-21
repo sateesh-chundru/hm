@@ -60,7 +60,7 @@ public class HostlerServiceImpl implements HostlerService{
 		hostlerDao.editHostler(hostler);
 		
 	}
-	
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 	public Hostler getHostler(long hostlerId) {
 		// TODO Auto-generated method stub
 		return hostlerDao.getHostler(hostlerId);

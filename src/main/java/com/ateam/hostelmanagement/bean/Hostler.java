@@ -1,5 +1,7 @@
 package com.ateam.hostelmanagement.bean;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,13 +17,14 @@ public class Hostler {
 	private  String age;
 	private  String sex;
 	private  String qualification;
-        @Transient
 	private  String dateOfJoining;
 	private String mobileNumber;
 	private String address;
-         @Transient
+	private  Long roomId;
+	private  BigDecimal amount;
+    @Transient
 	private boolean roomAssigned;
-          @Transient
+    @Transient
 	private String actualDate;
 	private int deleted=0;
 	
@@ -101,6 +104,18 @@ public class Hostler {
 		this.roomAssigned = roomAssigned;
 	}
 	
+	public Long getRoomId() {
+		return roomId;
+	}
+	public void setRoomId(Long roomId) {
+		this.roomId = roomId;
+	}
+	public BigDecimal getAmount() {
+		return amount;
+	}
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
 	public boolean equals(Object obj) {
       if(obj instanceof Hostler){
       	Hostler hostler=(Hostler)obj;
