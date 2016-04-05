@@ -121,8 +121,8 @@
 		/> </aop:config> -->
 	<!-- Activates annotation based transaction management -->
 	<!-- <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/> -->
- <!--sample edit-->
- 
+
+
 
 	<import resource="tiles-context.xml" />
 

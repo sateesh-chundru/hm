@@ -53,10 +53,10 @@
 		<put-attribute name="body-content" value="/WEB-INF/views/contents/editHostler.jsp" />
 	</definition>
 	
-	<definition name="home" extends="template-main">
+	<definition name="allHostlers" extends="template-main">
 		<put-attribute name="header-title-content" value="All Hostlers" />
 		<put-attribute name="title-content" value="All Hostlers" />
-		<put-attribute name="body-content" value="/WEB-INF/views/contents/home.jsp" />
+		<put-attribute name="body-content" value="/WEB-INF/views/contents/allHostlers.jsp" />
 	</definition>
 	<definition name="unpaidHostlerSearch" extends="template-main">
 		<put-attribute name="header-title-content" value="unpaid Hostlers" />

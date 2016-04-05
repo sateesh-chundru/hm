@@ -70,7 +70,7 @@ function isFormContainsErrors(){
 <tr>
 
 
-<td>First Name</td><td>     <form:input path="firstName"/></td>
+<td>First Name</td><td><input type="text" name="firstName" id="firstName">    <!--  <form:input path="firstName"/></td>-->
 </tr>
 <tr>
 <td>Last Name</td><td>      <form:input path="lastName"/></td>
@@ -115,10 +115,10 @@ Amount to pay*</td><td> <form:input path="amount" class="Number"/></td>
 <c:forEach items="${rooms}" var="room">
 <c:choose>
 <c:when test="${hostler.roomId==room.roomId }">
-<option value="${room.roomId }" selected="selected">${room.hostelName}-${room.roomNumber}-${room.availableBeds} Available</option>
+<option value="${room.roomId }" selected="selected">${room.hostelName}-${room.roomNumber}-(${room.availableBeds} Available)</option>
 </c:when>
 <c:otherwise>
-<option value="${room.roomId }">${room.hostelName}-${room.roomNumber}-${room.availableBeds} Available</option>
+<option value="${room.roomId }">${room.hostelName}-${room.roomNumber}-(${room.availableBeds} Available)</option>
 </c:otherwise>
 </c:choose>
 

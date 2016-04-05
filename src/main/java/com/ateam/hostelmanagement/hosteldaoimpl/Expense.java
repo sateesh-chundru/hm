@@ -1,4 +1,4 @@
-package com.ateam.hostelmanagement.hosteldaoimpl;
+                                                                                           package com.ateam.hostelmanagement.hosteldaoimpl;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

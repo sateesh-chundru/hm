@@ -78,7 +78,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	@RequestMapping(value = "/hostler/all", method = RequestMethod.GET)
 	public String allHostlers(Model model,@RequestParam(value="page",required=false,defaultValue="1")String pageStr) {
 		int page=Integer.parseInt(pageStr);
-		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
+//		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
 	  long count =hostlerService.getHostlersCount();
 	  long totalPageSize=Math.round(Math.floor(count/constants.pageSize));
 	
@@ -87,11 +87,11 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	  }
 		
 		List<Hostler> hostlers=hostlerService.getallhostlers(page);
-	  for (Hostler hostler : hostlers) {
-		if(hostlerRoomMappings.contains(hostler)){
-			hostler.setRoomAssigned(true);
-		}
-	}
+//	  for (Hostler hostler : hostlers) {
+//		if(hostlerRoomMappings.contains(hostler)){
+//			hostler.setRoomAssigned(true);
+//		}
+//	}
 	
 	   model.addAttribute("page",page);
 	   model.addAttribute("total",totalPageSize);
@@ -100,7 +100,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	   
 		model.addAttribute("hostlers",hostlers);
 
-	       return "home";
+	       return "allHostlers";
 
 	}
 	@RequestMapping(value="/hostler/search",method=RequestMethod.GET)
@@ -147,7 +147,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	public String allHostels(Model model,@RequestParam(value="page",required=false,defaultValue="1")String pageStr) {
 		//hostlerService.editHostler(hostler);
 		int page=Integer.parseInt(pageStr);
-		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
+//		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
 		long count =hostlerService.getHostelsCount();
 		  long totalPageSize=Math.round(Math.floor(count/constants.pageSize));
 		
@@ -156,11 +156,11 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		  }
 			
 			List<Hostel> hostels=hostlerService.getallhostels(page);
-		  for (Hostel hostel : hostels) {
-			  if(hostlerRoomMappings.contains(hostel)){
-				hostel.setRoomAssigned(true);
-			}
-		}
+//		  for (Hostel hostel : hostels) {
+//			  if(hostlerRoomMappings.contains(hostel)){
+//				hostel.setRoomAssigned(true);
+//			}
+//		}
 		
 		   model.addAttribute("page",page);
 		   model.addAttribute("total",totalPageSize);
@@ -189,7 +189,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	public String allRooms(Model model,@RequestParam(value="page",required=false,defaultValue="1")String pageStr) {
 
 		int page=Integer.parseInt(pageStr);
-		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
+//		List<HostlerRoomMapping> hostlerRoomMappings=hostlerService.getallAssigns();
 	  long count =hostlerService.getRoomsCount();
 	  long totalPageSize=Math.round(Math.floor(count/constants.pageSize));
 	
@@ -198,11 +198,11 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	  }
 		
 		List<Room> rooms=hostlerService.getallrooms(page);
-	  for (Room room : rooms) {
-		if(hostlerRoomMappings.contains(room)){
-			room.setRoomAssigned(true);
-		}
-	}
+//	  for (Room room : rooms) {
+//		if(hostlerRoomMappings.contains(room)){
+//			room.setRoomAssigned(true);
+//		}
+//	}
 	
 	   model.addAttribute("page",page);
 	   model.addAttribute("total",totalPageSize);

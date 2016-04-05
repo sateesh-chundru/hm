@@ -57,10 +57,10 @@ public class HostlerDaoImpl implements HostlerDao {
 		qry.setParameter(0, hostlerId);
 		int res = qry.executeUpdate();
 	}
-	@Override
-	public void editHostler(Hostler hostler) {
-		sessionFactory.getCurrentSession().update(hostler);
-	}
+//	@Override
+//	public void editHostler(Hostler hostler) {
+//		sessionFactory.getCurrentSession().update(hostler);
+//	}
 	public Hostler getHostler(long hostlerId) {
 
 		return (Hostler)sessionFactory.getCurrentSession().get(Hostler.class, hostlerId);
@@ -418,8 +418,15 @@ public class HostlerDaoImpl implements HostlerDao {
 		List<Hostler> hostlers2 = jdbcTemplet.query(Sqls.SELECT_HOSTLERS2,
 				new Object[] {}, new BeanPropertyRowMapper<Hostler>(
 						Hostler.class));
+
+		
 		return hostlers2;
 	}
 
+
+	public void editHostler(Hostler hostler) {
+		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().update(hostler);
+	}
 	
 }
