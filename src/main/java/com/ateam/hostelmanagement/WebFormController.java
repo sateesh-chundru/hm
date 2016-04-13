@@ -82,7 +82,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	@RequestMapping(value = "/hostler/delete/{hostlerId}", method = RequestMethod.GET)
 	public String deleteHostler( Model model,@PathVariable("hostlerId")Long  hostlerId) {
 		hostlerService.deleteHostler(hostlerId);
-		hostlerService.deleteAssign(hostlerId);
+//		hostlerService.deleteAssign(hostlerId);
 //		model.addAttribute("host", hostlerService.getallhostlers());
 //
 //       return "home";

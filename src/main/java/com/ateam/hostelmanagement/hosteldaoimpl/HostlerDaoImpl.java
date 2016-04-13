@@ -11,6 +11,8 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -44,7 +46,13 @@ public class HostlerDaoImpl implements HostlerDao {
 	
 	public List<Hostler> getallhostlers(int offset, int pageSize) {
 		Session session = sessionFactory.getCurrentSession();
-		List<Hostler> hostlers = session.createQuery("from hostler h where h.deleted=0").list();
+		Criteria criteria = session.createCriteria(Hostler.class);
+		criteria.add(Restrictions.eq("deleted", 0));
+	    criteria.setFirstResult(offset);
+		criteria.setMaxResults(pageSize);
+		List<Hostler> hostlers = criteria.list();
+			
+//		  List<Hostler> hostlers = session.createQuery("from hostler h where h.deleted=0").list();
 		return hostlers;
 	}
 
@@ -327,12 +335,21 @@ public class HostlerDaoImpl implements HostlerDao {
 	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch) {
 		Session session = sessionFactory.getCurrentSession();
 	       
-	       
 	       Criteria crit = session.createCriteria(Hostler.class);
-	        crit.add(Restrictions.and(Restrictions.like("name","%"+hostlerSearch.getName()+"%")));
+	       crit.add(Restrictions.eq("deleted",0));
+	       if(!Api.isEmptyString(hostlerSearch.getName())){ 
+	          crit.add(Restrictions.and(Restrictions.like("name","%"+hostlerSearch.getName()+"%")));
+	       }
+	       if(!Api.isEmptyString(hostlerSearch.getFirstName())){
 	        crit.add(Restrictions.and(Restrictions.like("firstName","%"+hostlerSearch.getFirstName()+"%")));
-	        crit.add(Restrictions.and(Restrictions.like("lastName","%"+hostlerSearch.getLastName()+"%")));
+	       }
+	        if(!Api.isEmptyString(hostlerSearch.getLastName())){
+	        
+	            crit.add(Restrictions.and(Restrictions.like("lastName","%"+hostlerSearch.getLastName()+"%")));
+	        }
+	        if(!Api.isEmptyString(hostlerSearch.getMobileNumber())){
 	        crit.add(Restrictions.and(Restrictions.like("mobileNumber","%"+hostlerSearch.getMobileNumber()+"%")));
+	        }
 	        List<Hostler> list = crit.list();
 		return list;
 	}
@@ -389,9 +406,13 @@ public class HostlerDaoImpl implements HostlerDao {
 
 	
 	public long getHostlersCount() {
-
-		return jdbcTemplet.queryForLong(Sqls.SELECT_HOSTLERS_COUNT,
-				new Object[] {});
+		Session session=sessionFactory.getCurrentSession();
+     Criteria criteria=session.createCriteria(Hostler.class);
+     criteria.add(Restrictions.eq("deleted", 0));
+     criteria.setProjection(Projections.rowCount());
+     return (Long)criteria.uniqueResult();
+//		return jdbcTemplet.queryForLong(Sqls.SELECT_HOSTLERS_COUNT,
+//				new Object[] {});
 	}
 
 	

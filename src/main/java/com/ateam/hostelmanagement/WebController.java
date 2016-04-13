@@ -114,7 +114,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	     
 		model.addAttribute("search",new HostlerSearch());
 		model.addAttribute("hostlers",hostlerService.getHostlerSearch(hostlerSearch));
-	       return "home";
+	       return "allHostlers";
 	}
 	@RequestMapping(value = "/hostler/current/payers", method = RequestMethod.GET)
 	public String currentPayers(Model model) {

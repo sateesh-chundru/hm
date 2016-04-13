@@ -204,7 +204,7 @@ int offSet=(page-1)*constants.pageSize;
 		
 		return hostlerDao.getPaymentDetails();
 	}
-	
+	@Transactional(propagation=Propagation.REQUIRED)
 	public List<Hostler> getHostlerSearch(HostlerSearch hostlerSearch) {
 		
 		return hostlerDao.getHostlerSearch(hostlerSearch);
@@ -246,7 +246,7 @@ int offSet=(page-1)*constants.pageSize;
 		
 		return hostlerDao.getPaymentHistory(hostlerId);
 	}
-	
+	@Transactional(propagation=Propagation.REQUIRED)
 	public long getHostlersCount() {
 		return hostlerDao.getHostlersCount();
 	}

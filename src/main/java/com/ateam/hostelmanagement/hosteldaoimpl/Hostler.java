@@ -120,9 +120,6 @@ public class Hostler {
       if(obj instanceof Hostler){
       	Hostler hostler=(Hostler)obj;
       	return hostler.getHostlerId()==this.getHostlerId();
-      }else if(obj instanceof HostlerRoomMapping){
-       HostlerRoomMapping hostlerRoomMapping=(HostlerRoomMapping)obj;
-       return hostlerRoomMapping.getHostlerId()==this.getHostlerId();
       }
 		  return false;
 	}

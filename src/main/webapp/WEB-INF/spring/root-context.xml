@@ -17,6 +17,7 @@
 	<context:annotation-config />
 	<task:annotation-driven />
 	<context:property-placeholder location="/WEB-INF/spring/local-constants.xml" />
+<!-- <context:property-placeholder location="/WEB-INF/spring/prod-constants.xml" /> -->
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
